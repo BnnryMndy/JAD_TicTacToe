@@ -1,14 +1,12 @@
 package lav18.unidubna;
 
 public class View {
-    private static View instance;
+    private static final View instance = new View();
     private static Game game = Game.getInstance();
     //private
     private View() { }
 
     public static View getInstance() {
-        if (instance == null) instance = new View();
-
         return instance;
     }
 
@@ -21,12 +19,54 @@ public class View {
                         "___|" + "___|" + "___\n" +
                         "7  |" + "8  |" + "9  \n" +
                         " "+ game.getField()[6]+" |" + " "+ game.getField()[7]+" |" + " "+ game.getField()[8]+" \n" ;
-
-        System.out.println(field);
+        String message = game.WhoStep() + ", enter position:";
+        System.out.println(field + message);
     }
 
     public void DrawStartMenu(){
-        String hello = "";
+        String hello = "Welcome to Anton's ...\n"+
+                "████████╗██╗ ██████╗    ████████╗ █████╗  ██████╗    ████████╗ ██████╗ ███████╗\n" +
+                "╚══██╔══╝██║██╔════╝    ╚══██╔══╝██╔══██╗██╔════╝    ╚══██╔══╝██╔═══██╗██╔════╝\n" +
+                "   ██║   ██║██║            ██║   ███████║██║            ██║   ██║   ██║█████╗  \n" +
+                "   ██║   ██║██║            ██║   ██╔══██║██║            ██║   ██║   ██║██╔══╝  \n" +
+                "   ██║   ██║╚██████╗       ██║   ██║  ██║╚██████╗       ██║   ╚██████╔╝███████╗\n" +
+                "   ╚═╝   ╚═╝ ╚═════╝       ╚═╝   ╚═╝  ╚═╝ ╚═════╝       ╚═╝    ╚═════╝ ╚══════╝\n" +
+                "\n\nEnter your names separated by a space:";
 
+        System.out.println(hello);
     }
+
+    public void DrawWin(){
+
+        String pic = "                                 .''.\n" +
+                "       .''.             *''*    :_\\/_:     . \n" +
+                "      :_\\/_:   .    .:.*_\\/_*   : /\\ :  .'.:.'.\n" +
+                "  .''.: /\\ : _\\(/_  ':'* /\\ *  : '..'.  -=:o:=-\n" +
+                " :_\\/_:'.:::. /)\\*''*  .|.* '.\\'/.'_\\(/_'.':'.'\n" +
+                " : /\\ : :::::  '*_\\/_* | |  -= o =- /)\\    '  *\n" +
+                "  '..'  ':::'   * /\\ * |'|  .'/.\\'.  '._____\n" +
+                "      *        __*..* |  |     :      |.   |' .---\"|\n" +
+                "       _*   .-'   '-. |  |     .--'|  ||   | _|    |\n" +
+                "    .-'|  _.|  |    ||   '-__  |   |  |    ||      |\n" +
+                "    |' | |.    |    ||       | |   |  |    ||      |\n" +
+                " ___|  '-'     '    \"\"       '-'   '-.'    '`      |____\n" +
+                "jgs~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+
+        String message = "Congratulations! " + game.WhoStep() + " win!\n\nMay be play one more time?\nEnter to play again, write /q to exit\n";
+
+        System.out.println(pic+message);
+    }
+
+    public void DrawTie(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+        String pic = "";
+
+        String message = "Congratulations! You both win!";
+        System.out.println(pic+message);
+    }
+
+
 }
+
+

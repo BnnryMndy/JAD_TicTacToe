@@ -6,7 +6,7 @@ public class Controller {
     private Scanner in;
     private String input;
     private Game game;
-    private static Controller instance;
+    private static final Controller instance = new Controller();
 
     private Controller(){
         in = new Scanner(System.in);
@@ -14,13 +14,12 @@ public class Controller {
     }
 
     public static Controller getInstance(){
-        if(instance == null)  instance = new Controller();
         return instance;
     }
 
     public void InputStep(){
         input = in.nextLine();
-        game.Step(Integer.parseInt(input));
+        game.Step(Integer.parseInt(input) - 1);
     };
 
     public void InputNames(){
@@ -28,9 +27,12 @@ public class Controller {
         game.AddPlayers(input.split(" ")[0],input.split(" ")[1]);
     };
 
-    public void InputMenu(){
+    public int InputMenu(){
         input = in.nextLine();
-        if(input != "/q") game.NewGame();
+        if(input.trim() == "/q") return 0;
+
+        game.NewGame();
+        return 1;
 
     };
 }

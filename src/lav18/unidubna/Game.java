@@ -1,14 +1,13 @@
 package lav18.unidubna;
 
 public class Game {
-    private static Game instance;
+    private static final Game instance = new Game();
     private Player playerX;
     private Player playerO;
     private Player currentPlayer;
     private String[] field = new String[9];
 
     private Game() {
-        NewGame();
     }
 
     public String[] getField() {
@@ -16,13 +15,14 @@ public class Game {
     }
 
     public static Game getInstance() {
-        if(instance == null) instance = new Game();
         return instance;
     }
 
     public void AddPlayers(String player1Name, String player2Name){
         playerX = new Player(player1Name, "x");
         playerO = new Player(player2Name, "o");
+
+        NewGame();
     }
 
     public void NewGame(){
@@ -52,7 +52,7 @@ public class Game {
         return currentPlayer.getName();
     }
 
-    private boolean IsWin(){
+    public boolean IsWin(){
         //TODO: make it right
 
         //horizontal conditions
@@ -72,7 +72,7 @@ public class Game {
         return false;
     }
     
-    private boolean IsTie(){
+    public boolean IsTie(){
         for (int i = 0; i < field.length; i++) {
             if (field[i].equals(" ")) return false;
         }

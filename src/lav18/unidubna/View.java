@@ -58,9 +58,14 @@ public class View {
     }
 
     public void DrawTie(){
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-        String pic = "";
+        String pic = "      /^-^\\         /^-----^\\\n" +
+                "      / o o \\        V  o o  V\n" +
+                "     /   Y   \\        |  Y  |\n" +
+                "     V \\ v / V         \\ Q /\n" +
+                "       / - \\           / - \\\n" +
+                "      /    |           |    \\\n" +
+                "(    /     |           |     \\     )\n" +
+                " ===/___) ||           || (___\\====\n";
 
         String message = "Congratulations! You both win!";
         System.out.println(pic+message);

@@ -76,6 +76,7 @@ public class Game {
         for (int i = 0; i < field.length; i++) {
             if (field[i].equals(" ")) return false;
         }
+        if(IsWin()) return false;
         return true;
     }
 }

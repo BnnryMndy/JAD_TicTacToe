@@ -15,6 +15,6 @@ public class Main {
             controller.InputStep();
         }
         if(game.IsWin()) view.DrawWin();
-        if(game.IsTie()) view.DrawWin();
+        if(game.IsTie()) view.DrawTie();
     }
 }

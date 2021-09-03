@@ -11,6 +11,10 @@ public class Game {
         NewGame();
     }
 
+    public String[] getField() {
+        return field;
+    }
+
     public static Game getInstance() {
         if(instance == null) instance = new Game();
         return instance;

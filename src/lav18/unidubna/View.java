@@ -24,4 +24,9 @@ public class View {
 
         System.out.println(field);
     }
+
+    public void DrawStartMenu(){
+        String hello = "";
+
+    }
 }

@@ -15,6 +15,10 @@ public class Player {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void addRating(int rating) {
         this.rating += rating;
     }

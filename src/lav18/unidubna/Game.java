@@ -44,7 +44,9 @@ public class Game {
         else currentPlayer = playerX;
     }
 
-
+    public String WhoStep(){
+        return currentPlayer.getName();
+    }
 
     private boolean IsWin(){
         //TODO: make it right

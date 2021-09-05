@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 public class GameButtonController implements ActionListener {
     private int buttonID;
     private JButton button;
+
     private Game game = Game.getInstance();
     public GameButtonController(int buttonID, JButton button){
         this.buttonID = buttonID;
@@ -18,6 +19,8 @@ public class GameButtonController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         game.Step(buttonID);
+
+        button.setText(game.getField()[buttonID]);
         button.setEnabled(false);
     }
 }

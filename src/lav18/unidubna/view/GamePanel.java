@@ -10,21 +10,29 @@ public class GamePanel extends JPanel {
     JButton[] button = new JButton[9];
     Game game = Game.getInstance();
 
-    public GamePanel(JFrame frame){
+    public GamePanel(Container container, JFrame frame){
         setLayout(new GridLayout(3, 3));
         for (int i = 0; i < 9; i++){
             button[i] = new JButton(" ");
             add(button[i]);
             button[i].setFont(new Font("Arial", Font.BOLD, 40));
-            button[i].addActionListener(new GameButtonController(i, button[i]));
+            button[i].addActionListener(new GameButtonController(i,
+                                                                button[i],
+                                                                container,
+                                                                new WinningPanel(container, this, frame),
+                                                                new TiePanel(container, this, frame),
+                                                                frame));
 
         }
         frame.repaint(10);
+
     }
 
-    public void UpdateButtonText(int buttonId){
-        button[buttonId].setText(game.getField()[buttonId]);
-        if(game.getField()[buttonId] == " ") button[buttonId].setEnabled(true);
+    public void UpdateButtonText(){
+        for (int buttonId = 0; buttonId < 9; buttonId++) {
+            button[buttonId].setText(game.getField()[buttonId]);
+            if(game.getField()[buttonId] == " ") button[buttonId].setEnabled(true);
+        }
     }
 
 

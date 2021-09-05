@@ -17,7 +17,7 @@ public class View extends JFrame {
         setTitle("Tic Tac Toe");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container container = getContentPane();
-        GamePanel gamePanel = new GamePanel(this);
+        GamePanel gamePanel = new GamePanel(container, this);
         MenuPanel menuPanel = new MenuPanel(container, gamePanel, this);
         container.add(menuPanel);
     }

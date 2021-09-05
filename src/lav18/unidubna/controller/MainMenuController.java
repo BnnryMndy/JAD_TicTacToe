@@ -26,6 +26,7 @@ public class MainMenuController implements ActionListener {
         game.NewGame();
         container.removeAll();
         frame.repaint();
+        gamePanel.UpdateButtonText();
         container.add(gamePanel);
         frame.revalidate();
     }

@@ -7,6 +7,9 @@ public class View extends JFrame {
         setSize(600, 600);
         setTitle("Tic Tac Toe");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        GamePanel gamePanel = new GamePanel();
+
+        getContentPane().add(gamePanel);
     }
 }
 

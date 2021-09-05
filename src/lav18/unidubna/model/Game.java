@@ -1,4 +1,4 @@
-package lav18.unidubna;
+package lav18.unidubna.model;
 
 public class Game {
     private static final Game instance = new Game();

@@ -1,4 +1,4 @@
-package lav18.unidubna;
+package lav18.unidubna.model;
 
 public class Player {
     private String name;

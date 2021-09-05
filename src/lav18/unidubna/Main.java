@@ -1,20 +1,12 @@
 package lav18.unidubna;
 
+import lav18.unidubna.view.View;
+
 public class Main {
 
     public static void main(String[] args) {
-        // write your code here
-        View view = View.getInstance();
-        Controller controller = Controller.getInstance();
-        Game game = Game.getInstance();
-        view.DrawStartMenu();
-        controller.InputNames();
+        View view = new View();
 
-        while (!game.IsWin() && !game.IsTie()){
-            view.DrawField();
-            controller.InputStep();
-        }
-        if(game.IsWin()) view.DrawWin();
-        if(game.IsTie()) view.DrawTie();
+        view.setVisible(true);
     }
 }

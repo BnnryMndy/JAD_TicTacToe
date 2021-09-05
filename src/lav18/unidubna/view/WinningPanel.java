@@ -9,13 +9,14 @@ import java.awt.*;
 public class WinningPanel extends JPanel {
     Game game = Game.getInstance();
     JButton StartButton = new JButton("play again");
-    JButton StartLabel = new JButton(game.WhoStep() + "is win");
+    JButton StartLabel;
 
 
     public WinningPanel(Container container, GamePanel gamePanel, JFrame frame){
 
         setLayout(new GridLayout(2,1));
         StartButton.setFont(new Font("Arial", Font.BOLD, 40));
+        StartLabel = new JButton(game.WhoStep() + " win");
         StartLabel.setFont(new Font("Arial", Font.BOLD, 40));
         StartLabel.setEnabled(false);
         add(StartLabel);

@@ -16,12 +16,7 @@ public class GamePanel extends JPanel {
             button[i] = new JButton(" ");
             add(button[i]);
             button[i].setFont(new Font("Arial", Font.BOLD, 40));
-            button[i].addActionListener(new GameButtonController(i,
-                                                                button[i],
-                                                                container,
-                                                                new WinningPanel(container, this, frame),
-                                                                new TiePanel(container, this, frame),
-                                                                frame));
+            button[i].addActionListener(new GameButtonController(i, button[i], this, container, frame));
 
         }
         frame.repaint(10);

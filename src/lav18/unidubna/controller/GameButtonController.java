@@ -13,19 +13,17 @@ import java.awt.event.ActionListener;
 public class GameButtonController implements ActionListener {
     private int buttonID;
     private JButton button;
+    GamePanel gamePanel;
     Container container;
-    WinningPanel winPanel;
-    TiePanel tiePanel;
     JFrame frame;
 
     private Game game = Game.getInstance();
 
-    public GameButtonController(int buttonID, JButton button, Container container, WinningPanel winPanel, TiePanel tiePanel, JFrame frame) {
+    public GameButtonController(int buttonID, JButton button, GamePanel gamePanel, Container container, JFrame frame) {
         this.buttonID = buttonID;
         this.button = button;
         this.container = container;
-        this.winPanel = winPanel;
-        this.tiePanel = tiePanel;
+        this.gamePanel = gamePanel;
         this.frame = frame;
     }
 
@@ -34,17 +32,20 @@ public class GameButtonController implements ActionListener {
         game.Step(buttonID);
         button.setText(game.getField()[buttonID]);
         button.setEnabled(false);
-        if(game.IsWin()) {
-            container.removeAll();
-            frame.repaint();
-            container.add(winPanel);
-            frame.revalidate();
-        }
         if(game.IsTie()) {
             container.removeAll();
             frame.repaint();
-            container.add(tiePanel);
+            container.add(new TiePanel(container, gamePanel, frame));
             frame.revalidate();
         }
+
+        if(game.IsWin()) {
+            WinningPanel win = new WinningPanel(container, gamePanel, frame);
+            container.removeAll();
+            frame.repaint();
+            container.add(win);
+            frame.revalidate();
+        }
+
     }
 }

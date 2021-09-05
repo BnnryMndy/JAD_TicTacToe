@@ -1,7 +1,7 @@
 package lav18.unidubna.model;
 
 public class Game {
-    private static final Game instance = new Game();
+    private static Game instance = new Game();
     private Player playerX;
     private Player playerO;
     private Player currentPlayer;
@@ -62,7 +62,7 @@ public class Game {
 
         //vertical conditions
         if(field[0].equals(field[3]) & field[3].equals(field[6]) & !field[0].equals(" ")) return true;
-        if(field[1].equals(field[4]) & field[4].equals(field[7]) & !field[3].equals(" ")) return true;
+        if(field[1].equals(field[4]) & field[4].equals(field[7]) & !field[1].equals(" ")) return true;
         if(field[2].equals(field[5]) & field[5].equals(field[8]) & !field[2].equals(" ")) return true;
 
         //diagonal conditions
@@ -76,7 +76,7 @@ public class Game {
         for (int i = 0; i < field.length; i++) {
             if (field[i].equals(" ")) return false;
         }
-        if(IsWin()) return false;
+        // if(IsWin()) return false;
         return true;
     }
 }

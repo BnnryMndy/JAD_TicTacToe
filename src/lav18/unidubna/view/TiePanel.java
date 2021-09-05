@@ -9,7 +9,7 @@ import java.awt.*;
 public class TiePanel extends JPanel{
     Game game = Game.getInstance();
     JButton StartButton = new JButton("play again");
-    JButton StartLabel = new JButton(game.WhoStep() + "is win");
+    JButton StartLabel = new JButton("T I E");
 
 
     public TiePanel(Container container, GamePanel gamePanel, JFrame frame){
